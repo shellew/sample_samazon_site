@@ -61,7 +61,11 @@ class ProductController extends Controller
  
          return redirect()->route('products.show', $product);
      }
+<<<<<<< HEAD
 
+=======
+     
+>>>>>>> program
     /**
      * Display the specified resource.
      *

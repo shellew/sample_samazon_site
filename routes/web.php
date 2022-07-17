@@ -15,6 +15,7 @@
 
   Route::get('users/carts', 'CartController@index')->name('carts.index');
   Route::post('users/carts', 'CartController@store')->name('carts.store');
+  Route::put('users/carts', 'CartController@update')->name('carts.update');
   Route::delete('users/carts', 'CartController@destroy')->name('carts.destroy');
 
   Route::get('users/mypage', 'UserController@mypage')->name('mypage');
@@ -29,19 +30,19 @@
   Route::post('products/{product}/reviews', 'ReviewController@store');
   
   Route::get('products/{product}/favorite', 'ProductController@favorite')->name('products.favorite');
-  
   Route::get('products', 'ProductController@index')->name('products.index');
+  Route::get('products/{product}', 'ProductController@show')->name('products.show');
 
   Auth::routes(['verify' => true]);
   
   Route::get('/home', 'HomeController@index')->name('home');
-  Route::get('products/{product}', 'ProductController@show')->name('products.show');
   
   Route::get('/dashboard', 'DashboardController@index')->middleware('auth:admins');
   
   Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
       Route::get('login', 'Dashboard\Auth\LoginController@showLoginForm')->name('login');
       Route::post('login', 'Dashboard\Auth\LoginController@login')->name('login');
+      Route::resource('major_categories', 'Dashboard\MajorCategoryController')->middleware('auth:admins');
       Route::resource('categories', 'Dashboard\CategoryController')->middleware('auth:admins');
       Route::resource('products', 'Dashboard\ProductController')->middleware('auth:admins');
   });
