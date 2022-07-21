@@ -15,7 +15,7 @@
     @endif
 
     <hr>
-
+    
     <form method="POST" action="/dashboard/products" class="mb-5" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-inline mt-4 mb-4 row">
@@ -49,11 +49,7 @@
         </div>
         <div class="form-inline mt-4 mb-4 row">
             <label for="product-carriage" class="col-2 d-flex justify-content-start">送料</label>
-            @if ($product->carriage_flag)
-            <input type="checkbox" name="carriage" id="product-carriage" class="samuraimart-check-box" checked>
-            @else
             <input type="checkbox" name="carriage" id="product-carriage" class="samuraimart-check-box">
-            @endif
         </div>
         <div class="form-inline mt-4 mb-4 row">
             <label for="product-description" class="col-2 d-flex justify-content-start align-self-start">商品説明</label>
