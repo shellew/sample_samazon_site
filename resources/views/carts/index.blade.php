@@ -34,11 +34,16 @@
                 <h3 class="w-100 mt-4">{{$product->qty}}</h3>
             </div>
             <div class="col-md-2">
+                @if ($product->options->carriage)
+                <h3 class="w-100 mt-4">￥{{$product->qty * ($product->price + env('CARRIAGE'))}}</h3>
+                @else
                 <h3 class="w-100 mt-4">￥{{$product->qty * $product->price}}</h3>
-            </div>
-            @endforeach            
+                @endif
+            </div>            
         </div>
-
+        @endforeach
+        
+        
         <hr>
 
         <div class="offset-8 col-4">

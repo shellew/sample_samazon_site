@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
-use App\ShoppingCart;z
+use App\ShoppingCart;
 
 class DashboardController extends Controller
 {
